@@ -2,8 +2,6 @@
 
 This is the reader's guide for student Mike Verheijden (19104367), currently studying the minor 'Applied Data Science' at The Hague University Of Applied Science (THUAS), for the personal portfolio for the final grading to successfully complete this minor.
 
-This guide will contain descriptions of
-
 Each Jupyter notebook will be titled according to what dataset it contains, e.g. 'Agora' or 'Darknet Markets'. The Agora dataset is the one that is publicly available on [Kaggle](https://www.kaggle.com/philipjames11/dark-net-marketplace-drug-data-agora-20142015), and the Darknet Markets dataset is the dataset provided by WebIQ which cannot be published, because of privacy sensitive data, for which a data agreement is signed aswell.
 
 The project is designed using agile/SCRUM methods, meaning that sprints are defined in order to safeguard progress, deadlines and deliverables. This is done using an online Trello board, where various tasks are defined and each individual project member keeps tracks of their respective tasks.
@@ -24,7 +22,7 @@ Link to [Logistic Regression Classifier](LogisticRegressionClassifier.ipynb)
 
 ## Data preprocessing
 
-asdkaskdaksdka
+The data preprocessing steps that are used 
 
 ## Communications
 

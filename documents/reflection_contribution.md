@@ -5,3 +5,23 @@ This document will describe the reflections that are written by Mike Verheijden 
 .
 .
 .
+
+## Situation
+
+.
+
+## Task
+
+.
+
+## Action
+
+.
+
+## Result
+
+.
+
+## Reflect
+
+.

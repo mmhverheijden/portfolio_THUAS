@@ -12,7 +12,13 @@ asdasdaoskda
 
 ## Research project
 
-asdasdaoskda
+task definition
+
+evaluation
+
+Conclusions
+
+[researchplanning](https://docs.google.com/spreadsheets/d/1vaSoA5Cp66wbBTGdaLRTS3dO9KKMIrv8_TaI7geka7E/edit?usp=sharing)
 
 ## Predictive analysis
 

@@ -36,4 +36,4 @@ The result of this action was that I had a clear understanding of how to conduct
 
 ## Reflect
 
-.
+Personally thinking, I handled well because this was the first step to convert our paper from a Google Documents file to a professional looking paper. Also because this was done on a Friday evening after most of the group went home, and I stayed longer in order to find out how to set up an environment for us.

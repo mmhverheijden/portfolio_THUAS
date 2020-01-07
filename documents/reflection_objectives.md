@@ -6,6 +6,7 @@ Before I started this minor, there were specific objectives that I had in mind t
 * exploring the various sections within Data Science,
 * experience working in the field of Data Science,
 * stepping out of my comfort zone of business IT,
+* acquiring more technological knowledge,
 * understanding the concept of machine learning, deep learning and neural networks.
 
 During this minor, I can state that this really expanded my interest in the field of Data Science even more and that this really is something that I still see myself doing in ten years. It also helped me realize that I still have a very deep interest in coding and that this is something I want to focus on even more in order to retrain myself to become a developer/software engineer as well, instead of a business consultant. The level required to be an efficient data scientist is still relatively high for me in my opinion, especially since I am not very accustomed to coding and mathematics. But this will not be an obstacle for me in order to become a professional data scientist later on in my career. The minor also showed me all the different sections within data science, for example exploratory data analysis, cleaning data, validating models, etc. These were things that did not really come up to me at the beginning of this minor, when I had a different vision about data science.

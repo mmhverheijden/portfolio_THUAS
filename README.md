@@ -10,7 +10,7 @@ asdasdaoskda
 
 ## Data preprocessing
 
-The data preprocessing steps that are used
+The data preprocessing steps are looked into : (lem, stem, unicode, lower)
 
 ## Research project
 
@@ -30,6 +30,24 @@ asdasdaoskda
 
 Link to [Logistic Regression Classifier](LogisticRegressionClassifier.ipynb)
 
+### Hold-out vs k-fold (TF-IDF)
+
+When searching the internet I stumbled upon another way to split data in order to train on it in comparison to the normal method used by Sklearn,
+
+For the Darknet Markets dataset, this resulted a minor improvement on the scores of approximately one percent. While this is not much, small improvements like this eventually could add up and ...
+
+[Hold-out Darknet Markets](about:blank)
+
+[k-fold Darknet Markets](notebooks/TNO_K-fold_tfidf.ipynb)
+
+### Tensorflow (fail)
+
+...
+
+### Spectral clustering (fail)
+
+...
+
 ## Communications
 
 Multiple presentations needed to be performed by each individual project member in order to score on the rubric. This means the weekly presentations on Monday, where progress and problems are presented in order to discuss possible solutions with the whole class. And also the four-weekly presentations on Friday, where the whole progress of the project is presented and where people from outside of THUAS are also allowed to attend and ask questions. The following dates show when I presented:
@@ -48,7 +66,7 @@ Finally, the [research paper](about:blank) is also included and my efforts on th
 
 As shown on my [Datacamp profile](https://www.datacamp.com/profile/19104367), all required courses that needed to be completed are done.
 
-Another criteria that is required for the portfolio is writing multiple reflections in order to reflect and evaluate the project and my learning objectives. The individual reflections are found in the following links:
+Another criteria that is required for the portfolio is writing multiple reflections in order to reflect and evaluate my contributions towards the project, my own learning objectives for this minor and finally the project as a whole. The individual reflections are found in the following links:
 
 * [Reflection on contribution](documents/reflection_contribution.md)
 * [Reflection on own learning objectives](documents/reflection_objectives.md)

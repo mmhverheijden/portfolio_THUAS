@@ -50,14 +50,14 @@ For the Darknet Markets dataset, this resulted a minor improvement on the scores
 
 ## Communications
 
-Multiple presentations needed to be performed by each individual project member in order to score on the rubric. This means the weekly presentations on Monday, where progress and problems are presented in order to discuss possible solutions with the whole class. And also the four-weekly presentations on Friday, where the whole progress of the project is presented and where people from outside of THUAS are also allowed to attend and ask questions. The following dates show when I presented:
+Multiple presentations needed to be performed by each individual project member in order to score on the rubric. This means the weekly closed presentations on Monday, where progress and problems are presented in order to discuss possible solutions with the whole class. And also the four-weekly open presentations on Friday, where the whole progress of the project is presented and where people from outside of THUAS are also allowed to attend and ask questions. The following dates show when I presented:
 
-| Date       | Week   | Day                                                                                                            | Subject |
-|------------|:------:|----------------------------------------------------------------------------------------------------------------|---------|
-| 14-10-2019 | 7      | [Monday](https://docs.google.com/presentation/d/18pM7pRmxdsDqRGJz84PMqaN9kibJh_S50wNqZksWjyg/edit?usp=sharing) | Visualizations (T-SNE, UMAP, confusion matrix) |
-| 01-11-2019 | 8      | [Friday](https://drive.google.com/file/d/139Ulhyow2SwwF6IoJqTZhCDblRnP2JMU/view?usp=sharing) | Project as a whole, created dataframes, pipelines, train results |
-| 18-11-2019 | 11     | [Monday](https://docs.google.com/presentation/d/1YNo-k7I8A9M9UAcpv9xqzkEaW38lNg3lu-9FoTFDubg/edit?usp=sharing) | Ensemble learning, RNN, problem status dataset |
-| 10-01-2020 | 13     | [Friday](https://drive.google.com/file/d/181d7qLdFrMkpcqN7AoUJOiJLNOWKkO65/view?usp=sharing) | Project as a whole, T-SNE, preprocess strategy + scores    |
+| Date       | Week   | Kind   | Subject |
+|------------|:------:|:----------------------------------:|---------|
+| 14-10-2019 | 7      | [Closed](https://docs.google.com/presentation/d/18pM7pRmxdsDqRGJz84PMqaN9kibJh_S50wNqZksWjyg/edit?usp=sharing) | Visualizations (T-SNE, UMAP, confusion matrix) |
+| 01-11-2019 | 8      | [Open](https://drive.google.com/file/d/139Ulhyow2SwwF6IoJqTZhCDblRnP2JMU/view?usp=sharing) | Project as a whole, created dataframes, pipelines, train results |
+| 18-11-2019 | 11     | [Closed](https://docs.google.com/presentation/d/1YNo-k7I8A9M9UAcpv9xqzkEaW38lNg3lu-9FoTFDubg/edit?usp=sharing) | Ensemble learning, RNN, problem status dataset |
+| 10-01-2020 | 13     | [Open](https://drive.google.com/file/d/181d7qLdFrMkpcqN7AoUJOiJLNOWKkO65/view?usp=sharing) | Project as a whole, T-SNE, preprocess strategy + scores    |
 | 23-01-2020 | 15     | [Symposium](about:blank) | Final open posterpresentation   |
 
 Finally, the [research paper](about:blank) is also included and my efforts on the paper will be noted down aswell.

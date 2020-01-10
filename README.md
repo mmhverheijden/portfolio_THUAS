@@ -6,39 +6,83 @@ Each Jupyter notebook will be titled according to what dataset it contains, e.g.
 
 ## Domain knowledge
 
-asdasdaoskda
+<!-- XX Introduction of the subject field -->
+The 'dark web' is a collection of various websites that exist on an encrypted network that cannot be indexed using traditional search engines or browsers. The dark web provides its users complete anonimity because of the 'Tor network', provided with its own browser granting access to the dark web for everybody, making it easily accessible and rather risk-free for illegal activities.
+
+Because this hosts a large amount of illegal activities, both Interpol and multiple international police departments are very interested in gaining more insight in order to combat these cybercriminals. The research will focus on using natural language processing in combination with machine learning to provide these insights, feeding data in the form of various market advertisements and forum posts in order to classify what topic(s) is/are discussed in said texts.
+
+<!-- Literature research -->
+Within the project, a lot of research was conducted in order to obtain knowledge about the domain of the darkweb and natural language processing, but also about data science itself since this is a new field of knowledge for me. This resulted in a lot of deskresearch, scouring the internet for information about all these subjects.
+
+<!-- XX Terms, jargon and definitions  -->
+For the different terms, jargon and definitions, I made a terminology list for our shared [Google Drive](https://docs.google.com/document/d/1_PiH3GpbucwgJX_mEqwgqkKT412Pzws2v5Pz95TKNsY/edit?usp=sharing) in order to maintain clearness on what the different terms within our field of subject mean. This list is also used to note down other terms found online and within the lectures, in order for the project group to have a full understanding of all terms for both the domains of the project and data science itself.
 
 ## Data preprocessing
 
+<!-- Data exploration -->
+exploring the Agora dataset, refer to [Agora Data Exploration](notebooks/Agora_Data_Exploration.ipynb)
+
+exploring the Darknet Markets dataset, refer to [TNO](about:blank)
+
+<!-- Data cleansing -->
+...
+
+<!-- Data preparation -->
 The data preprocessing steps are looked into : (lem, stem, unicode, lower)
+
+<!-- Data explanation -->
+...
+
+<!-- Data visualization (exploratory)  -->
+...
 
 ## Research project
 
-task definition (context,reason and problem definition, research questions)
+<!-- task definition (context,reason and problem definition, research questions) -->
+...
 
-evaluation
+<!-- evaluation -->
+...
 
-The research is planned in a agile/SCRUM fashion, meaning that sprints are defined for periods of two weeks in order to safeguard progress, deadlines and deliverables. The [detailed researchplanning](https://docs.google.com/spreadsheets/d/1vaSoA5Cp66wbBTGdaLRTS3dO9KKMIrv8_TaI7geka7E/edit?usp=sharing) shows that before the project started, multiple tasks for the project were defined, noted and assigned to certain weeks in which these tasks would be executed. The project was safeguarded using an online Trello board, where various tasks are defined and each individual project member keeps tracks of their respective tasks.
+<!-- Conclusions  -->
+...
+
+<!-- research planning -->
+The research is planned in a agile/SCRUM fashion, meaning that sprints are defined for periods of two weeks in order to safeguard progress, deadlines and deliverables. The [detailed researchplanning](https://docs.google.com/spreadsheets/d/1vaSoA5Cp66wbBTGdaLRTS3dO9KKMIrv8_TaI7geka7E/edit?usp=sharing) shows that before the project started, multiple tasks for the project were defined, noted and assigned to certain weeks in which these tasks would be executed. The visualization of this planning was done by me and Dennis van Gilst, using a template I created for my previous internship.
+
+The project was safeguarded using an online Trello board, where various tasks are defined and each individual project member keeps tracks of their respective tasks.
 
 ![Trello board](img/trello.png)
 
-Conclusions
-
 ## Predictive analysis
+<!-- Selecting a Model -->
+...
 
-asdasdaoskda
+<!-- Configuring a Model -->
+...
+
+<!-- Training a model -->
+...
+
+<!-- Evaluating a model -->
+...
+
+<!-- Visualizing the outcome of a model (explanatory)  -->
+...
 
 Link to [Logistic Regression Classifier](LogisticRegressionClassifier.ipynb)
 
 ### Hold-out vs k-fold (TF-IDF)
 
-When searching the internet I stumbled upon another way to split data in order to train on it in comparison to the normal method used by Sklearn,
+When searching the internet I stumbled upon another way to split data in order to train on it in comparison to the normal method used by Sklearn, ....
 
 For the Darknet Markets dataset, this resulted a minor improvement on the scores of approximately one percent. While this is not much, small improvements like this eventually could add up and ...
 
-[Hold-out Darknet Markets](about:blank)
+The [Hold-out Darknet Markets notebook](about:blank) shows what code was written in order to obtain the results for training the various [F1-scores](viz/Holdout_scores.png).
 
-[k-fold Darknet Markets](notebooks/TNO_K-fold_tfidf.ipynb)
+The [k-fold Darknet Markets notebook](notebooks/TNO_K-fold_tfidf.ipynb) shows what code was written in order to obtain the results for training the various
+
+[hold-out results](viz/KFold_scores.png)
 
 ### Tensorflow (fail)
 
@@ -50,6 +94,7 @@ For the Darknet Markets dataset, this resulted a minor improvement on the scores
 
 ## Communications
 
+<!-- Presentations  -->
 Multiple presentations needed to be performed by each individual project member in order to score on the rubric. This means the weekly closed presentations on Monday, where progress and problems are presented in order to discuss possible solutions with the whole class. And also the four-weekly open presentations on Friday, where the whole progress of the project is presented and where people from outside of THUAS are also allowed to attend and ask questions. The following dates show when I presented:
 
 | Date       | Week   | Kind   | Subject |
@@ -58,9 +103,13 @@ Multiple presentations needed to be performed by each individual project member 
 | 01-11-2019 | 8      | [Open](https://drive.google.com/file/d/139Ulhyow2SwwF6IoJqTZhCDblRnP2JMU/view?usp=sharing) | Project as a whole, created dataframes, pipelines, train results |
 | 18-11-2019 | 11     | [Closed](https://docs.google.com/presentation/d/1YNo-k7I8A9M9UAcpv9xqzkEaW38lNg3lu-9FoTFDubg/edit?usp=sharing) | Ensemble learning, RNN, problem status dataset |
 | 10-01-2020 | 13     | [Open](https://drive.google.com/file/d/181d7qLdFrMkpcqN7AoUJOiJLNOWKkO65/view?usp=sharing) | Project as a whole, T-SNE, preprocess strategy + scores    |
-| 23-01-2020 | 15     | [Symposium](about:blank) | Final open posterpresentation   |
+| 23-01-2020 | 16     | [Symposium](about:blank) | Final open posterpresentation   |
 
+<!-- Writing paper -->
 Finally, the [research paper](about:blank) is also included and my efforts on the paper will be noted down aswell.
+
+* .
+* .
 
 ## Obligatory criteria
 
@@ -68,6 +117,6 @@ As shown on my [Datacamp profile](https://www.datacamp.com/profile/19104367), al
 
 Another criteria that is required for the portfolio is writing multiple reflections in order to reflect and evaluate my contributions towards the project, my own learning objectives for this minor and finally the project as a whole. The individual reflections are found in the following links:
 
-* [Reflection on contribution](documents/reflection_contribution.md)
-* [Reflection on own learning objectives](documents/reflection_objectives.md)
-* [Evaluation on group project as a whole](documents/evaluation_group.md)
+* [Reflection on contribution](docs/reflection_contribution.md)
+* [Reflection on own learning objectives](docs/reflection_objectives.md)
+* [Evaluation on group project as a whole](docs/evaluation_group.md)

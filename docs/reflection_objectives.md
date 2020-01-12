@@ -13,7 +13,7 @@ During this minor, I can state that this really expanded my interest in the fiel
 
 Besides completing my learning objectives, I also got to learn and experience some other aspects that are relevant to becoming a software engineers/data scientist, namely:
 
-* using Github and Gitlab in order to efficiently collaborate with others and to structure code,
+* using GitHub and Gitlab in order to efficiently collaborate with others and to structure code,
 * using LaTeX in combination with BibTeX in order to write professional articles,
 * working with Terminal
 

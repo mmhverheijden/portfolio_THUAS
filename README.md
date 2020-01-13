@@ -6,11 +6,11 @@ This is the reader's guide for student Mike Verheijden (19104367), currently stu
 
 ### Introduction of the subject field
 
-The 'dark web' is a collection of various websites that exist on an encrypted network that cannot be indexed using traditional search engines or browsers. The dark web provides its users complete anonimity because of the 'Tor network', provided with its own browser granting access to the dark web for everybody, making it easily accessible and rather risk-free for illegal activities. Because this hosts a large amount of illegal activities, both Interpol and multiple international police departments are very interested in gaining more insight in order to combat these cybercriminals. The research will focus on using natural language processing in combination with machine learning to provide these insights, feeding data in the form of various market advertisements and forum posts in order to classify what topic(s) is/are discussed in said texts.
+The 'dark web' is a collection of various websites that exist on an encrypted network that cannot be indexed using traditional search engines or browsers. The dark web provides its users complete anonimity because of the 'Tor network', provided with its own browser granting access to the dark web for everybody, making it easily accessible and rather risk-free for illegal activities. Because this hosts a large amount of illegal activities, both Interpol and multiple international police departments are very interested in gaining more insight in order to combat these cybercriminals. The research will focus on using natural language processing (NLP) in combination with machine learning to provide these insights, in the form of certain predetermined topics. NLP is the domain of processing text to binary data in order for a machine learning model to understand meaning and context. Feeding the data to the model will be in the form of various market advertisements and forum posts in order to classify what the topic(s) is/are that are discussed in said texts.
 
 ### Literature research
 
-Within the project, a lot of research was conducted in order to obtain knowledge about the domain of the darkweb and natural language processing, but also about data science itself since this is a new field of knowledge for me. This resulted in a lot of deskresearch, scouring the internet for information about all these subjects.
+Within the project, I conducted a lot of research in order to obtain knowledge about the domain of the dark web, natural language processing, but also about data science itself since this is a new domain of knowledge for me. This resulted in a lot of deskresearch, scouring the internet for information about all these subjects.
 
 ### Terms, jargon and definitions
 
@@ -22,31 +22,34 @@ Each Jupyter notebook will be titled according to what dataset it contains, e.g.
 
 ### Data exploration
 
-Before any of us could work on the data we retrieved, it was necessary to explore the data in order to see what we were going to work with.
+Before any of us could work on the retrieved data, it was necessary to explore the data in order to see what we were going to work with.
 
-First of all, the Agora dataset was explored, mainly searching for outliers, analyzing the structure (columns, rows, etc.), visualizing the spread of the different categories, etc. For the exploration of the Agora dataset, refer to [notebook - Agora Data Exploration](notebooks/Agora_Data_Exploration.ipynb).
+First of all, I explored the Agora dataset, mainly searching for outliers, analyzing the structure (columns, rows, etc.), visualizing the spread of the different categories, etc. This was done to get familiar with the data. For the exploration of the Agora dataset, refer to [notebook - Agora Data Exploration](notebooks/Agora_Data_Exploration.ipynb).
 
-We quickly came to the conclusion that the Agora dataset is a very long dataset (columns), but the records are not very long (+/- 250 characters). It is also heavily biased towards *drugs* as it takes up 89,3% of the total dataset, so that we needed to take that into account.
+I quickly came to the conclusion that the Agora dataset is a very long dataset (columns) and that it is also heavily biased towards *drugs* as it takes up 89,3% of the total dataset, so that we needed to take that into account. We also found out that the records are not very long in characters, maxed around 250 characters.
 
-After retrieving the WebIQ data from TNO, that needed to be explored in the same way as the Agora dataset, even though this was vectorized data. For the exploration of the WebIQ dataset, refer to [notebook - WebIQ Data Exploration](notebooks/TNO_Data_exploration.ipynb)
+After retrieving the WebIQ data from TNO, that needed to be explored in the same way as the Agora dataset, even though this was vectorized data. For the exploration of the WebIQ dataset, refer to [notebook - WebIQ Data Exploration](notebooks/TNO_Data_exploration.ipynb).
 
-After analyzing the data, we found multiple errors in the script that needed to be fixed. This set was also very small (+/- 11.500 records), but the data was very long and qualitatively better. We also noted that these categories did not match the Interpol topics list, so we needed to map these.
+After analyzing the data, we found multiple errors in the script that needed to be fixed. This set was also very small (+/- 11.500 records), but the data was very long and qualitatively better. The data set consisted of only categories and vectorized words. We also noted that these categories did not match the Interpol topics list, so we needed to map these.
 
 ### Data cleansing
 
-Cleaning the data from the Agora set is done in [notebook - Agora Data Cleaning](notebooks/Agora_Data_Cleaning.ipynb). This was not very much, since there were only four records that needed to be removed in order to remove false data. The WebIQ data did not need to cleaned, since these were vectorized.
+The data exploration of the Agora set showed that there were multiple (four, to be exact) records that were incorrect, possibly due to parsing errors. It was necessary to clean this in order to get a clean set with only *real* categories so that models could be trained without errors. The data cleansing is done is [notebook - Agora Data Cleansing](notebooks/Agora_Data_Cleaning.ipynb).
+
+The WebIQ data did not need to cleansed, since these were vectorized by our own script.
 
 ### Data preparation
 
+As shown in the paragraph below, any outliers were removed from the data set, leaving me to look into different methods of preprocessing the data.
 The data preprocessing steps are looked into : (lem, stem, unicode, lower)
 
-The datasets also needed to be mapped towards the Interpol topics list
+The datasets also needed to be mapped towards the Interpol topics list, this
 
 ### Data explanation
 
-Agora: ...
+The Agora dataset is a .csv-file containing 109.590 records of advertisements that were placed on the now-closed Agora marketplace. Every advertisement has a *vendor, category, item + description, price, etc*. For a detailed overview of how this dataset is structured, refer to the codebook that was written by Dennis van Gilst -- [codebook Agora](https://docs.google.com/spreadsheets/d/1gN1_2B79F_eKS_axDTHM5dBmgCnCSXjKqo3MmujwT8Y/edit?usp=sharing).
 
-WebIQ: ...
+The WebIQ dataset, however, is very different. This dataset consisted of several .pkl-files (pickle files) that had to manually be combined within a notebook. This was we had made several preprocessing methods that each returned its own vectors, meanwhile the categories stayed the same. For a detailed overview of how this dataset is structured, refer to the codebook that was written by me for the WebIQ dataset -- [codebook WebIQ](https://docs.google.com/spreadsheets/d/1LHR3e9M0y2_Mld7AG_zhMe56IACZKwa5RfGsT4eDLW4/edit?usp=sharing)
 
 ### Data visualization (exploratory)
 
@@ -56,9 +59,33 @@ WebIQ: ...
 
 ### Task definition
 
-Main research question:
+The reason for this project is that Interpol want to gain insight into what is happening on various dark web forums and marketplaces. They want a topic classifier that takes dark web text as input, and gives the topic that is being talked about as output. This way they can view what topics are being talked about, pick up on trending topics, etc. From this reasoning and problem, we formulated a main research question that goes as follows:
 
-Sub questions:
+<pre>
+How can a pipeline be created that classifies dark web text based content to a predetermined topics list?
+</pre>
+
+From this main question, multiple subquestions were made in order to split it into different domains that could be researched individually.
+
+<pre>
+- How are the darkweb forums / markets structured?
+- What labels of the dataset provided by TNO are relevant for the research?
+- What strategies can be used to preprocess the available data?
+- What feature extraction methods are available for text classification?
+- What machine learning algorithms can be used for natural language processing?
+- What preprocessing method works best on the dark web text content?
+- What feature extraction methods give the best vectorization of the text content?
+- What machine learning algorithms give the best result?
+- What combination of processing, feature extraction and machine learning algorithms gives the best pipeline?
+- How can unsupervised machine learning be applied for the validation of the classifier?
+</pre>
+
+The following tasks are the ones that I took upon myself for the project:
+
+* .
+* .
+* .
+* .
 
 ### Evaluation
 
@@ -74,10 +101,7 @@ The research is planned in a agile/SCRUM fashion, meaning that sprints are defin
 
 The project was safeguarded using an online Trello board, where various tasks are defined and each individual project member keeps tracks of their respective tasks.
 
-<details>
-<summary>Trello board</summary>
-  <img src="img/trello.png" alt="alt text">"
-</details>
+![Trello board](img/trello.png)
 
 ## Predictive analysis
 
@@ -117,7 +141,7 @@ For the WebIQ dataset, I took the tf-idf vectors and trained multiple models wit
 
 ## Communications
 
-Multiple presentations needed to be performed by each individual project member in order to score on the rubric. This means the weekly closed presentations on Monday and  the four-weekly open presentations on Friday. The following dates show when I presented:
+Multiple presentations needed to be performed by each individual project member in order to score on the rubric. This means the weekly closed presentations on Monday and the four-weekly open presentations on Friday. The following dates show when I presented:
 
 | Date       | Week   | Kind   | Subject |
 |------------|:------:|:----------------------------------:|---------|
@@ -127,7 +151,7 @@ Multiple presentations needed to be performed by each individual project member 
 | 10-01-2020 | 13     | [Open](https://drive.google.com/file/d/181d7qLdFrMkpcqN7AoUJOiJLNOWKkO65/view?usp=sharing) | Project as a whole, preprocess strategy + scores, pipeline, Docker    |
 | 23-01-2020 | 16     | [Symposium](about:blank) | Final open posterpresentation  |
 
-Finally, the [research paper](docs/researchpaper.pdf) is also included as the final delivarable for this minor. The project group wrote the paper together  and contributed evenly towards it. Specifically, my contributions to the paper will be noted down below and consist of the following elements:
+Finally, the [research paper](docs/researchpaper.pdf) is also included as the final delivarable for this minor. The project group wrote the paper together and contributed evenly towards it. Specifically, my contributions to the paper will be noted down below and consist of the following elements:
 
 * Setting up a LaTeX environment for the whole group to work collaboratively online.
 * Setting up the template of the file in order to safeguard that all criteria from the different documents that are published on Blackboard were met (e.g. using LNCS-format, structure of the paper, paragraphs, etc.).
@@ -139,10 +163,7 @@ Finally, the [research paper](docs/researchpaper.pdf) is also included as the fi
 
 As shown on my [Datacamp profile](https://www.datacamp.com/profile/19104367), all required courses that needed to be completed are done.
 
-<details>
-<summary>Completed courses</summary>
-  <img src="img/Datacamp.png" alt="alt text">"
-</details>
+![Completed courses](img/Datacamp.png)
 
 Another criteria that is required for the portfolio is writing multiple reflections in order to reflect and evaluate my contributions towards the project, my own learning objectives for this minor and finally the project as a whole. The individual reflections are found in the following links:
 

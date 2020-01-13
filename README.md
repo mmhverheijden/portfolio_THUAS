@@ -56,7 +56,9 @@ WebIQ: ...
 
 ### Task definition
 
-mentioned in paper?
+Main research question:
+
+Sub questions:
 
 ### Evaluation
 
@@ -72,7 +74,10 @@ The research is planned in a agile/SCRUM fashion, meaning that sprints are defin
 
 The project was safeguarded using an online Trello board, where various tasks are defined and each individual project member keeps tracks of their respective tasks.
 
-![Trello board](img/trello.png)
+<details>
+<summary>Trello board</summary>
+  <img src="img/trello.png" alt="alt text">"
+</details>
 
 ## Predictive analysis
 
@@ -104,11 +109,7 @@ The project was safeguarded using an online Trello board, where various tasks ar
 
 When searching the internet I stumbled upon another way to split data in order to train on it in comparison to the normal method used by Sklearn, using the strategy of k-fold cross validation.
 
-For the WebIQ dataset, this resulted a minor improvement on the scores of approximately one percent. While this is not much, small improvements like this eventually could add up and ...
-
-The [notebook - Hold-out WebIQ](notebooks/TNO_Holdout_tfidf.ipynb) shows what
-
-The [notebook - k-fold WebIQ](notebooks/TNO_K-fold_tfidf.ipynb) shows what
+For the WebIQ dataset, I took the tf-idf vectors and trained multiple models with these with both hold-out and k-fold. This resulted a minor improvement on the scores of approximately one percent. While this is not much, small improvements like this eventually could add up and to reach higher scores. Refer to the specific notebooks to see these results, [notebook - Hold-out WebIQ](notebooks/TNO_Holdout_tfidf.ipynb) and [notebook - k-fold WebIQ](notebooks/TNO_K-fold_tfidf.ipynb).
 
 ### Visualizing the outcome of a model (explanatory)
 
@@ -116,7 +117,7 @@ The [notebook - k-fold WebIQ](notebooks/TNO_K-fold_tfidf.ipynb) shows what
 
 ## Communications
 
-Multiple presentations needed to be performed by each individual project member in order to score on the rubric. This means the weekly closed presentations on Monday, where progress and problems are presented in order to discuss possible solutions with the whole class. And also the four-weekly open presentations on Friday, where the whole progress of the project is presented and where people from outside of THUAS are also allowed to attend and ask questions. The following dates show when I presented:
+Multiple presentations needed to be performed by each individual project member in order to score on the rubric. This means the weekly closed presentations on Monday and  the four-weekly open presentations on Friday. The following dates show when I presented:
 
 | Date       | Week   | Kind   | Subject |
 |------------|:------:|:----------------------------------:|---------|
@@ -131,11 +132,17 @@ Finally, the [research paper](docs/researchpaper.pdf) is also included as the fi
 * Setting up a LaTeX environment for the whole group to work collaboratively online.
 * Setting up the template of the file in order to safeguard that all criteria from the different documents that are published on Blackboard were met (e.g. using LNCS-format, structure of the paper, paragraphs, etc.).
 * Contributing to the following paragraphs: introduction, abstract, methodology, pipeline, machine learning, results and conclusion.
+* Searching and referencing papers and documents using BibTeX.
 * Frequently checking and improving various elements within the paper, e.g. spelling, punctuation, grammar, consistency and frequently wrong spelled words.
 
 ## Obligatory criteria
 
 As shown on my [Datacamp profile](https://www.datacamp.com/profile/19104367), all required courses that needed to be completed are done.
+
+<details>
+<summary>Completed courses</summary>
+  <img src="img/Datacamp.png" alt="alt text">"
+</details>
 
 Another criteria that is required for the portfolio is writing multiple reflections in order to reflect and evaluate my contributions towards the project, my own learning objectives for this minor and finally the project as a whole. The individual reflections are found in the following links:
 

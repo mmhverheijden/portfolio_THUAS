@@ -103,6 +103,21 @@ The project was safeguarded using an online Trello board, where various tasks ar
 
 ![Trello board](img/trello.png)
 
+Some examples of the tasks that I picked up:
+| Sprint1   | Sprint2  | Sprint3    | Sprint4   |
+|-----------|----------|------------|-----------|
+| Write plan of action    | Write researchplan  | Experiment Tensorflow | Open presentation  |
+| Domain research dark web   | Defining projectscope | Researching ML models | Word2vec logistic regression classifier |
+| Domain research preprocessing | Adjust subquestions   |               | Closed presentation |
+
+&nbsp;
+
+| Sprint5 | Sprint6 | Sprint7 | Sprint8 |
+|------------------------------|-------------------------------------------------|-----------------------------|-----------------------|
+| Training ML models | Try k-fold | Setting up LaTeX | Wrapping up paper |
+| Research spectral clustering | Find out how to validate  unsupervised learning | Convert Google doc to LaTeX | Wrapping up portfolio |
+| Evaluating scores |  | Plotting Hold-out vs k-fold |  |
+
 ## Predictive analysis
 
 ### Selecting a Model

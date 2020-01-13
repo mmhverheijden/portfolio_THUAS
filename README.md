@@ -110,8 +110,6 @@ Some examples of the tasks that I picked up:
 | Domain research dark web   | Defining projectscope | Researching ML models | Word2vec logistic regression classifier |
 | Domain research preprocessing | Adjust subquestions   |               | Closed presentation |
 
-&nbsp;
-
 | Sprint5 | Sprint6 | Sprint7 | Sprint8 |
 |------------------------------|-------------------------------------------------|-----------------------------|-----------------------|
 | Training ML models | Try k-fold | Setting up LaTeX | Wrapping up paper |

@@ -41,7 +41,9 @@ The WebIQ data did not need to cleansed, since these were vectorized by our own 
 ### Data preparation
 
 As shown in the paragraph below, any outliers were removed from the data set, leaving me to look into different methods of preprocessing the data.
-The data preprocessing steps are looked into : (lem, stem, unicode, lower)
+The data preprocessing steps are looked into are lemmatization, stemming, unicode, lower. This is done using Dennis van Oosten's preprocess script.
+
+For the vecotirzation, I practised a little bit with various methods in order to get the hang of it for myself. For the notebook, refer to [notebook - Agora Vectorization](notebooks/Agora_Vectorization_Practise).
 
 The datasets also needed to be mapped towards the Interpol topics list, this
 

@@ -8,7 +8,7 @@ Within the project we worked with two different datasets, called 'Agora' and 'We
 
 ### Task definition
 
-The reason for this project 'TITANIUM' is that the European Union, in collaboration with various organizations like TNO, want to gain insight into what is happening on various dark web forums and marketplaces. TNO tasked us to create a topic classifier that takes dark web text as input and gives the topic that is being talked about as output. This way they can view what topics are being talked about, pick up on trending topics, etc. From this reasoning and problem, we formulated a main research question that goes as follows:
+The reason for this project ['TITANIUM'](https://www.titanium-project.eu/) is that the European Union, in collaboration with various organizations like TNO, want to gain insight into what is happening on various dark web forums and marketplaces. TNO tasked us to create a topic classifier that takes dark web text as input and gives the topic that is being talked about as output. This way they can view what topics are being talked about, pick up on trending topics, etc. From this reasoning and problem, we formulated a main research question that goes as follows:
 
 <pre>
 How can a pipeline be created that classifies dark web text-based content to a predetermined topics list?
@@ -74,7 +74,7 @@ The research is planned in an agile/SCRUM fashion, meaning that sprints are defi
 
 The project was safeguarded using an online Trello board, where various tasks are defined, and each individual project member keeps tracks of their respective tasks.
 
-![Trello board](img/trello.png)
+![Trello board](img\trello.png)
 
 Since the board is very big, I will summarize some examples of the tasks that I picked up during the project:
 
@@ -112,6 +112,7 @@ Below is a brief bibliography of the literature (papers and articles) I found wo
 - Chakure, A. (2019, June 29). Data Preprocessing in Python. Retrieved September 26, 2019, from https://towardsdatascience.com/data-preprocessing-3cd01eefd438
 - Chen, H. (2012). Dark Web. *Integrated Series in Information Systems*. https://doi.org/10.1007/978-1-4614-1557-2
 - Fleshman, W. (2019, February 21). Spectral Clustering. Retrieved October 23, 2019, from https://towardsdatascience.com/spectral-clustering-aba2640c0d5b
+- Data-Flair. (2019, October 4). Machine Learning Classification – 8 Algorithms for Data Science Aspirants. Retrieved December 12, 2019, from https://data-flair.training/blogs/machine-learning-classification-algorithms/
 - Koenig, R. (2019, July 29). NLP for Beginners: Cleaning & Preprocessing Text Data. Retrieved September 26, 2019, from https://towardsdatascience.com/nlp-for-beginners-cleaning-preprocessing-text-data-ae8e306bef0f
 - Li, S. (2019, February 19). Multi-Class Text Classification with Scikit-Learn. Retrieved October 15, 2019, from https://towardsdatascience.com/multi-class-text-classification-with-scikit-learn-12f1e60e0a9f
 - Pannu, M., Kay, I., & Harris, D. (2018). Using Dark Web Crawler to Uncover Suspicious and Malicious Websites. *Advances in Intelligent Systems and Computing*, 108–115. https://doi.org/10.1007/978-3-319-94782-2_11
@@ -127,27 +128,52 @@ For the different terms, jargon and definitions, I made a terminology list for o
 
 ### Selecting a Model
 
-The selection of a model was done by using a [comparison matrix](img\comparison_Agora.png) made by Christian that showed the results of all algorithms with all the different preprocess methods we defined used on the Agora set. Linear SVC showed to be the best fit, probably because of 
+We researched what algorithms could be used for text classification and we tried out every one we came across. The final selection of a model was done by using a [comparison matrix](img\comparison_Agora.png) made by Christian that showed the results of all algorithms with all the different preprocess methods we defined used on the Agora set.
+
+Linear SVC and SGD showed to be the best fit. SVC plots in an n-dimensional space where the value of each feature corresponds to the value of the coordinate helping find an ideal hyperplane. SGD is efficient as it learns linear classifiers under the convex loss function which is both linear and logistic (Data-Flair, 2019). I picked SGD since this had a comparable result with Linear SVC as two of the best performing algorithms.
+
+I also tried *'Spectral Clustering'* as a way of trying to cluster words together, however this did not work and was too complex. For the specific code, refer to [notebook - Agora Spectral Clustering](notebooks\Agora_Spectral_Clustering.ipynb).
 
 ### Configuring a Model
 
-...
+The tweaking of the hyperparameters was done by inspecting the parameters of the [SGDClassifier()](docs\SGD_parameters.txt) method and thinking about what could influence the scores of the model.
+
+```python
+Init signature: SGDClassifier(loss='hinge', penalty='l2', alpha=0.0001, l1_ratio=0.15, fit_intercept=True, max_iter=None, tol=None, shuffle=True, verbose=0, epsilon=0.1, n_jobs=None, random_state=None, learning_rate='optimal', eta0=0.0, power_t=0.5, early_stopping=False, validation_fraction=0.1, n_iter_no_change=5, class_weight=None, warm_start=False, average=False, n_iter=None)
+```
+
+The following parameters could be tweaked in my opinion:
+
+| Parameter | Reason |
+|-----------|--------|
+| loss      | varying the loss function could possibly change the way the algorithm calculates it |
+| penalty   | this regularizes the data and with different methods it might bring sparsity to the model |
+| fit_intercept | a boolean that checks whether the intercept should be estimated or not |
+| max_iter  | the maximum number of passes over the training data (aka epochs) |
+| warm_start       | reuse the solution of the previous call to fit as initialization, otherwise, just erase the previous solution |
+| random_state  | fixed in order to preserve same scores |
+
+I concluded that my script did not provide an increase in scores in comparison to normally running the classifier, so that it was not necessary further down the project. For the specific code, refer to [notebook - Agora SGD Training](notebooks\Agora_Training_SGD.ipynb).
 
 ### Training a model
 
-...
+I trained models on both the balanced Agora set (this was done to prevent major bias towards 'drugs') and WebIQ set, as shown in [notebook - Agora SGD Training](notebooks\Agora_Training_SGD.ipynb), [notebook - Hold-out WebIQ](notebooks\TNO_Holdout_tfidf.ipynb) and [notebook - k-fold WebIQ](notebooks\TNO_K-fold_tfidf.ipynb). For the training of the models I tweaked some parameters and varied with the validation methods.
 
 ### Evaluating a model
 
 For the WebIQ dataset, I took the tf-idf vectors and trained multiple models with these with both hold-out and k-fold validation (Allibhai, 2019). This resulted in minor improvements on the scores of approximately one percent. This increase is likely due to training over *k iterations*, so that the model will train over the whole set and all data is passed to the model in comparison to hold-out since that only divides it and trains on the train set.
 
-Refer to the specific notebooks to see these results, [notebook - Hold-out WebIQ](notebooks/TNO_Holdout_tfidf.ipynb), [notebook - k-fold WebIQ](notebooks/TNO_K-fold_tfidf.ipynb) and [notebook - comparison WebIQ](notebooks\TNO_tfidf_set_comparison.ipynb).
+Refer to the specific notebooks to see these results [notebook - Hold-out WebIQ](notebooks\TNO_Holdout_tfidf.ipynb), [notebook - k-fold WebIQ](notebooks\TNO_K-fold_tfidf.ipynb) and [notebook - comparison WebIQ](notebooks\TNO_tfidf_set_comparison.ipynb).
 
 ![holdout](img\holdout_WebIQ.png) ![k-fold](img\kfold_WebIQ.png)
 
 ### Visualizing the outcome of a model (explanatory)
 
-...
+For the visualization of a different model, I trained a K-Means algorithm at the beginning of the project to visualize how this model clusters, as is shown in [notebook - Agora Vectorization](notebooks\Agora_Vectorization_Practise.ipynb). This was done as practise for me and was not carried on further into the project.
+
+![K-means](img\kmeans_plot.png)
+
+The plot shows how the tf-idf vectors that are used within the balanced Agora set are clustered and showing where they are centered with the blue dots.
 
 ## Data preprocessing
 
@@ -155,17 +181,13 @@ Refer to the specific notebooks to see these results, [notebook - Hold-out WebIQ
 
 Before any of us could work on the retrieved data, it was necessary to explore the data in order to see what we were going to work with.
 
-First, I explored the Agora dataset, mainly searching for outliers, analyzing the structure (columns, rows, etc.), visualizing the spread of the different categories, etc. This was done to get familiar with the data. For the exploration of the Agora dataset, refer to [notebook - Agora Data Exploration](notebooks/Agora_Data_Exploration.ipynb).
+First, I explored the Agora dataset, mainly searching for outliers, analyzing the structure (columns, rows, etc.), visualizing the spread of the different categories, etc. This was done to get familiar with the data. For the exploration of the Agora dataset, refer to [notebook - Agora Data Exploration](notebooks\Agora_Data_Exploration.ipynb). I quickly concluded that the Agora dataset is a very long dataset (columns) and that it is also heavily biased towards *drugs* as it takes up 89,3% of the total dataset, so that we needed to take that into account. We also found out that the records are not very long in characters, maxed around 250 characters.
 
-I quickly concluded that the Agora dataset is a very long dataset (columns) and that it is also heavily biased towards *drugs* as it takes up 89,3% of the total dataset, so that we needed to take that into account. We also found out that the records are not very long in characters, maxed around 250 characters.
-
-After retrieving the WebIQ data from TNO, that needed to be explored in the same way as the Agora dataset, even though this was vectorized data. For the exploration of the WebIQ dataset, refer to [notebook - WebIQ Data Exploration](notebooks/TNO_Data_exploration.ipynb).
-
-After analyzing the data, we found multiple errors in the script that needed to be fixed. This set was also very small (+/- 11.500 records), but the data was very long and qualitatively better. The dataset consisted of only categories and vectorized words. We also noted that these categories did not match the Interpol topics list, so we needed to map these.
+After retrieving the WebIQ data from TNO, that needed to be explored in the same way as the Agora dataset, even though this was vectorized data. For the exploration of the WebIQ dataset, refer to [notebook - WebIQ Data Exploration](notebooks\TNO_Data_exploration.ipynb). After analyzing the data, we found multiple errors in the script that needed to be fixed. This set was also very small (+/- 11.500 records), but the data was very long and qualitatively better. The dataset consisted of only categories and vectorized words. We also noted that these categories did not match the Interpol topics list, so we needed to map these.
 
 ### Data cleansing
 
-The data exploration of the Agora set showed that there were multiple (four, to be exact) records that were incorrect, possibly due to parsing errors. It was necessary to clean this in order to get a clean set with only *real* categories so that models could be trained without errors. The data cleansing is done is [notebook - Agora Data Cleansing](notebooks/Agora_Data_Cleaning.ipynb).
+The data exploration of the Agora set showed that there were multiple (four, to be exact) records that were incorrect, possibly due to parsing errors. It was necessary to clean this in order to get a clean set with only *real* categories so that models could be trained without errors. The data cleansing is done is [notebook - Agora Data Cleansing](notebooks\Agora_Data_Cleaning.ipynb).
 
 The WebIQ data did not need to be cleansed, since these were vectorized by our own script.
 
@@ -174,7 +196,7 @@ The WebIQ data did not need to be cleansed, since these were vectorized by our o
 As shown in the paragraph below, any outliers were removed from the dataset, leaving me to investigate different methods of preprocessing the data.
 The data preprocessing steps that are investigated are: lemmatization, stemming, Unicode, lower. This is done using Dennis van Oosten's preprocess script for the project.
 
-For the vectorization, I practiced a little bit with various methods in order to get the hang of it for myself. For the notebook, refer to [notebook - Agora Vectorization](notebooks/Agora_Vectorization_Practise.ipynb).
+For the vectorization, I practiced a little bit with various methods in order to get the hang of it for myself. For the notebook, refer to [notebook - Agora Vectorization](notebooks\Agora_Vectorization_Practise.ipynb).
 
 ### Data explanation
 
@@ -184,7 +206,7 @@ The WebIQ dataset, however, is very different. This dataset consisted of several
 
 ### Data visualization (exploratory)
 
-I tried visualizing the Word2vec vectors of the balanced Agora set using Dennis' preprocess script, in order to see whether any clusters were formed, as seen in [notebook - Agora Vectorization](notebooks/Agora_Vectorization_Practise.ipynb). Unfortunately, this result was not very promising as I expected, showing almost no clusters and could also explain why Word2vec scored less on the matrix.
+I tried visualizing the Word2vec vectors of the balanced Agora set using Dennis' preprocess script, in order to see whether any clusters were formed, as seen in [notebook - Agora Vectorization](notebooks\Agora_Vectorization_Practise.ipynb). Unfortunately, this result was not very promising as I expected, showing almost no clusters and could also explain why Word2vec scored less on the matrix.
 
 ![T-SNE](img\tsne_w2v.png)
 
@@ -198,9 +220,9 @@ Multiple presentations needed to be performed by each individual project member 
 | 01-11-2019 | 8      | [Open](https://drive.google.com/file/d/139Ulhyow2SwwF6IoJqTZhCDblRnP2JMU/view?usp=sharing) | Project as a whole, created dataframes, pipelines, train results |
 | 18-11-2019 | 11     | [Closed](https://docs.google.com/presentation/d/1YNo-k7I8A9M9UAcpv9xqzkEaW38lNg3lu-9FoTFDubg/edit?usp=sharing) | Ensemble learning, RNN, problem status dataset |
 | 10-01-2020 | 13     | [Open](https://drive.google.com/file/d/181d7qLdFrMkpcqN7AoUJOiJLNOWKkO65/view?usp=sharing) | Project as a whole, preprocess strategy + scores, pipeline, Docker    |
-| 23-01-2020 | 16     | [Symposium](about:blank) | Final open posterpresentation  |
+| 23-01-2020 | 16     | [Symposium](https://drive.google.com/file/d/1xkyPoYHOGk_ZMxKc7i6f5knYB7OEsHy6/view?usp=sharing) | Final open posterpresentation  |
 
-Finally, the [research paper](docs/researchpaper.pdf) is also included as the final deliverable for this minor. The project group wrote the paper together and contributed evenly towards it. Specifically, my contributions to the paper will be noted down below and consist of the following elements:
+Finally, the [research paper](docs\researchpaper.pdf) is also included as the final deliverable for this minor. The project group wrote the paper together and contributed evenly towards it. Specifically, my contributions to the paper will be noted down below and consist of the following elements:
 
 - Getting familiar with LaTeX in order to explain this to the rest of the group and setting up a LaTeX environment for the whole group to work collaboratively online.
 - Setting up the template of the file in order to safeguard that all criteria from the different documents that are published on Blackboard were met (e.g. using LNCS-format, structure of the paper, paragraphs, etc.).
@@ -220,10 +242,10 @@ Finally, the [research paper](docs/researchpaper.pdf) is also included as the fi
 
 As shown on my [Datacamp profile](https://www.datacamp.com/profile/19104367), all required courses that needed to be completed are done.
 
-![Completed courses](img/Datacamp.png)
+![Completed courses](img\Datacamp.png)
 
 Another criterion that is required for the portfolio is writing multiple reflections in order to reflect and evaluate my contributions towards the project, my own learning objectives for this minor and finally the project itself. The individual reflections are found in the following links:
 
-- [Reflection on contribution](docs/reflection_contribution.md)
-- [Reflection on own learning objectives](docs/reflection_objectives.md)
-- [Evaluation on group project as a whole](docs/evaluation_group.md)
+- [Reflection on contribution](docs\reflection_contribution.md)
+- [Reflection on own learning objectives](docs\reflection_objectives.md)
+- [Evaluation on group project as a whole](docs\evaluation_group.md)

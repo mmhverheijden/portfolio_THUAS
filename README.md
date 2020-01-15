@@ -43,15 +43,15 @@ The WebIQ data did not need to cleansed, since these were vectorized by our own 
 As shown in the paragraph below, any outliers were removed from the data set, leaving me to look into different methods of preprocessing the data.
 The data preprocessing steps are looked into are lemmatization, stemming, unicode, lower. This is done using Dennis van Oosten's preprocess script.
 
-For the vecotirzation, I practised a little bit with various methods in order to get the hang of it for myself. For the notebook, refer to [notebook - Agora Vectorization](notebooks/Agora_Vectorization_Practise.ipynb).
+For the vectorization, I practised a little bit with various methods in order to get the hang of it for myself. For the notebook, refer to [notebook - Agora Vectorization](notebooks/Agora_Vectorization_Practise.ipynb).
 
 The datasets also needed to be mapped towards the Interpol topics list, this
 
 ### Data explanation
 
-The Agora dataset is a .csv-file containing 109.590 records of advertisements that were placed on the now-closed Agora marketplace. Every advertisement has a *vendor, category, item + description, price, etc*. For a detailed overview of how this dataset is structured, refer to the codebook that was written by Dennis van Gilst -- [codebook Agora](https://docs.google.com/spreadsheets/d/1gN1_2B79F_eKS_axDTHM5dBmgCnCSXjKqo3MmujwT8Y/edit?usp=sharing).
+The Agora dataset is a .csv-file containing 109.590 records of advertisements that were placed on the now-closed Agora marketplace. Every advertisement has a *vendor, category, item + description, price, etc*. Also, I calculated the percentage of each category within the dataset and added this to the codebook using my data exploration script. For a detailed overview of how this dataset is structured, refer to the codebook that was written by Dennis van Gilst -- [codebook Agora](https://docs.google.com/spreadsheets/d/1gN1_2B79F_eKS_axDTHM5dBmgCnCSXjKqo3MmujwT8Y/edit?usp=sharing).
 
-The WebIQ dataset, however, is very different. This dataset consisted of several .pkl-files (pickle files) that had to manually be combined within a notebook. This was we had made several preprocessing methods that each returned its own vectors, meanwhile the categories stayed the same. For a detailed overview of how this dataset is structured, refer to the codebook that was written by me for the WebIQ dataset -- [codebook WebIQ](https://docs.google.com/spreadsheets/d/1LHR3e9M0y2_Mld7AG_zhMe56IACZKwa5RfGsT4eDLW4/edit?usp=sharing)
+The WebIQ dataset, however, is very different. This dataset consisted of several .pkl-files (pickle files) that had to manually be combined within a notebook. This was we had made several preprocessing methods that each returned its own vectors, meanwhile the categories stayed the same. I also initiated within the group to write a codebook for this dataset and calculated the category percentages again. For a detailed overview of how this dataset is structured, refer to the codebook that was written by the group as a whole for the WebIQ dataset -- [codebook WebIQ](https://docs.google.com/spreadsheets/d/1LHR3e9M0y2_Mld7AG_zhMe56IACZKwa5RfGsT4eDLW4/edit?usp=sharing)
 
 ### Data visualization (exploratory)
 
@@ -64,7 +64,7 @@ The WebIQ dataset, however, is very different. This dataset consisted of several
 The reason for this project is that Interpol want to gain insight into what is happening on various dark web forums and marketplaces. They want a topic classifier that takes dark web text as input, and gives the topic that is being talked about as output. This way they can view what topics are being talked about, pick up on trending topics, etc. From this reasoning and problem, we formulated a main research question that goes as follows:
 
 <pre>
-How can a pipeline be created that classifies dark web text based content to a predetermined topics list?
+How can a pipeline be created that classifies dark web text-based content to a predetermined topics list?
 </pre>
 
 From this main question, multiple subquestions were made in order to split it into different domains that could be researched individually.
@@ -82,7 +82,7 @@ From this main question, multiple subquestions were made in order to split it in
 - How can unsupervised machine learning be applied for the validation of the classifier?
 </pre>
 
-The following tasks are the ones that I took upon myself for the project:
+The following tasks are the ones that I took upon myself for the project related to the following questions:
 
 * .
 * .
@@ -116,7 +116,7 @@ Some examples of the tasks that I picked up:
 &nbsp;
 
 | Sprint5 | Sprint6 | Sprint7 | Sprint8 |
-|------------------------------|-------------------------------------------------|-----------------------------|-----------------------|
+|---------|---------|---------|---------|
 | Training ML models | Try k-fold | Setting up LaTeX | Wrapping up paper |
 | Research spectral clustering | Find out how to validate  unsupervised learning | Convert Google doc to LaTeX | Wrapping up portfolio |
 | Evaluating scores |  | Plotting Hold-out vs k-fold |  |
@@ -129,7 +129,7 @@ Some examples of the tasks that I picked up:
 
 #### Tensorflow (fail)
 
-...
+During the beginning of the project, I took it upon myself to experiment with Tensorflow, since this was one of the
 
 #### Spectral clustering (fail)
 
@@ -147,11 +147,11 @@ Some examples of the tasks that I picked up:
 
 ...
 
-#### Hold-out vs k-fold (TF-IDF)
+#### Hold-out vs k-fold validation on WebIQ ti-fidf
 
 When searching the internet I stumbled upon another way to split data in order to train on it in comparison to the normal method used by Sklearn, using the strategy of k-fold cross validation.
 
-For the WebIQ dataset, I took the tf-idf vectors and trained multiple models with these with both hold-out and k-fold. This resulted a minor improvement on the scores of approximately one percent. While this is not much, small improvements like this eventually could add up and to reach higher scores. Refer to the specific notebooks to see these results, [notebook - Hold-out WebIQ](notebooks/TNO_Holdout_tfidf.ipynb) and [notebook - k-fold WebIQ](notebooks/TNO_K-fold_tfidf.ipynb).
+For the WebIQ dataset, I took the tf-idf vectors and trained multiple models with these with both hold-out and k-fold validation. This resulted in minor improvements on the scores of approximately one percent. While this is not much, small improvements like this eventually could add up and to reach higher scores. Refer to the specific notebooks to see these results, [notebook - Hold-out WebIQ](notebooks/TNO_Holdout_tfidf.ipynb) and [notebook - k-fold WebIQ](notebooks/TNO_K-fold_tfidf.ipynb).
 
 ### Visualizing the outcome of a model (explanatory)
 
@@ -174,7 +174,7 @@ Finally, the [research paper](docs/researchpaper.pdf) is also included as the fi
 * Setting up a LaTeX environment for the whole group to work collaboratively online.
 * Setting up the template of the file in order to safeguard that all criteria from the different documents that are published on Blackboard were met (e.g. using LNCS-format, structure of the paper, paragraphs, etc.).
 * Contributing to the following paragraphs: introduction, abstract, methodology, pipeline, machine learning, results and conclusion.
-* Searching and referencing papers and documents using BibTeX.
+* Searching and referencing papers / documents using BibTeX.
 * Frequently checking and improving various elements within the paper, e.g. spelling, punctuation, grammar, consistency and frequently wrong spelled words.
 
 ## Obligatory criteria
